@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
 import java.security.Principal;
@@ -22,11 +21,5 @@ public class UserRestController {
     @GetMapping("/api/user")
     public ResponseEntity<User> getUser(Principal principal) {
         return new ResponseEntity<>(userService.findByEmail(principal.getName()), HttpStatus.OK);
-    }
-    @GetMapping("/user")
-    public ModelAndView userPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("user");
-        return modelAndView;
     }
 }
