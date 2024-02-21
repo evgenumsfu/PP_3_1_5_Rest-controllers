@@ -17,6 +17,7 @@ public class AdminRestController {
     public AdminRestController(UserService userService) {
         this.userService = userService;
     }
+
     @GetMapping("/api/admin")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> list = userService.allUsers();

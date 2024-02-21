@@ -17,7 +17,6 @@ public class UserRestController {
     public UserRestController(UserService userService) {
         this.userService = userService;
     }
-
     @GetMapping("/api/user")
     public ResponseEntity<User> getUser(Principal principal) {
         return new ResponseEntity<>(userService.findByEmail(principal.getName()), HttpStatus.OK);
